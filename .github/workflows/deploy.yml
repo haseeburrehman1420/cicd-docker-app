@@ -35,3 +35,9 @@ jobs:
             docker stop cicd-app || true
             docker rm cicd-app || true
             docker run -d -p 3000:3000 --name cicd-app ${{ secrets.DOCKER_USERNAME }}/cicd-app:latest
+
+
+      - name: Test Secrets
+        run: |
+          echo "${{ secrets.DOCKER_USERNAME }}"
+          echo "${{ secrets.VM_HOST }}"
